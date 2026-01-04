@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f5f0;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            
+        }
+        
+        header {
+            text-align: center;
+            padding: 25px 0;
+            background: linear-gradient(to right, #c52a1f, #e67e22);
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .logo {
+            width: 220px;       
+            height: auto;
+            margin-bottom: 15px;
+            border-radius: 100%;
+            background: white;
+            margin-top: 10px;
+        }
+        @media (max-width: 480px) {
+        .logo {
+            width: 90px;
+        }
+        }
+
+        
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .menu-category {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .menu-category:hover {
+            transform: translateY(-5px);
+        }
+        
+        .category-header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 18px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .category-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+        
+        .category-icon {
+            font-size: 1.8rem;
+        }
+        
+        .menu-items {
+            padding: 20px;
+        }
+        
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px dashed #eee;
+            transition: all 0.2s;
+        }
+        
+        .menu-item:hover {
+            background-color: #f9f9f9;
+            padding-right: 10px;
+            padding-left: 10px;
+            border-radius: 8px;
+        }
+        
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+        
+        .item-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            flex-grow: 1;
+        }
+        
+        .item-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #c52a1f;
+            background-color: #fef5f5;
+            padding: 5px 15px;
+            border-radius: 20px;
+            min-width: 90px;
+            text-align: center;
+        }
+        
+        
+        
+        .footer {
+            text-align: center;
+            padding: 25px;
+            background-color: #2c3e50;
+            color: white;
+            border-radius: 15px;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1rem;
+        }
+        
+  
+        
+        @media (max-width: 768px) {
+            .menu-container {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .category-title {
+                font-size: 1.4rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .item-name {
+                font-size: 1.2rem;
+            }
+            
+            .item-price {
+                font-size: 1.2rem;
+                min-width: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Restaurant Logo" class="logo">
+        <h1><i class="fas fa-utensils"></i> Menu</h1>
+        
+    </header>
+    
+    
+    <div class="menu-container">
+        <!-- الدجاج والمشاوي -->
+        <div class="menu-category">
+            <div class="category-header">
+                <h2 class="category-title"><i class="fas fa-drumstick-bite"></i> الدجاج والمشاوي</h2>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-name">فروج فحم</div>
+                    <div class="item-price">$13.34</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">نص فروج فحم</div>
+                    <div class="item-price">$7.78</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">جوانح ابن البيك</div>
+                    <div class="item-price">$5.00</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- السندويشات -->
+        <div class="menu-category">
+            <div class="category-header">
+                <h2 class="category-title"><i class="fas fa-bread-slice"></i> السندويشات</h2>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-name">سندويش دجاج فحم</div>
+                    <div class="item-price">$4.45</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">سندويش كفتة</div>
+                    <div class="item-price">$3.89</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">سندويش بطاطا</div>
+                    <div class="item-price">$2.23</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">برغر ابن البيك</div>
+                    <div class="item-price">$5.00</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- الوجبات -->
+        <div class="menu-category">
+            <div class="category-header">
+                <h2 class="category-title"><i class="fas fa-concierge-bell"></i> الوجبات</h2>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-name">وجبة سندويش دجاج</div>
+                    <div class="item-price">$6.67</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">وجبة برغر ابن البيك</div>
+                    <div class="item-price">$7.23</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- المشروبات -->
+        <div class="menu-category">
+            <div class="category-header">
+                <h2 class="category-title"><i class="fas fa-glass-cheers"></i> المشروبات</h2>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-name">7 Up</div>
+                    <div class="item-price">$0.78</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Pepsi</div>
+                    <div class="item-price">$0.78</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Mirinda</div>
+                    <div class="item-price">$0.78</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Laban</div>
+                    <div class="item-price">$0.78</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <h3>معلومات الاتصال</h3>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span dir="ltr">+961 71 737099</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-clock"></i>
+                <span>ساعات العمل: 12 صباحًا - 12 منتصف الليل</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>العنوان: شويفات - شارع الامراء</span>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Simple script to highlight items on click (for better user experience)
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuItems = document.querySelectorAll('.menu-item');
+            
+            menuItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    // Remove highlight from all items
+                    menuItems.forEach(i => i.style.backgroundColor = '');
+                    
+                    // Highlight clicked item
+                    this.style.backgroundColor = '#f0f7ff';
+                    
+                    // Remove highlight after 1 second
+                    setTimeout(() => {
+                        this.style.backgroundColor = '';
+                    }, 1000);
+                });
+            });
+            
+            // Add today's date to the header
+            const today = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateString = today.toLocaleDateString('ar-EG', options);
+            
+            const subtitle = document.querySelector('.subtitle');
+            subtitle.innerHTML += `<br><small>${dateString}</small>`;
+        });
+    </script>
+</body>
+</html>
